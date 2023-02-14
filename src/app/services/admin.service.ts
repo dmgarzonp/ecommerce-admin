@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, observable } from "rxjs";
+import { Observable } from "rxjs";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { JwtHelperService } from "@auth0/angular-jwt";
 
@@ -41,7 +41,7 @@ export class AdminService {
       const helper = new JwtHelperService();
       var decodedToken = helper.decodeToken(token);
 
-      console.log(decodedToken);
+      //console.log(decodedToken);
 
       if (!decodedToken) {
         console.log("NO TIENE ACCESO");
@@ -54,5 +54,7 @@ export class AdminService {
     }
     return allowRoles.includes(decodedToken['role']);
   }
+
+
 
 }
